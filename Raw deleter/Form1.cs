@@ -43,14 +43,10 @@ namespace Raw_deleter
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (!listGetter.isListNotEmpty)
-            {
-                if (listGetter.GetLists(JpegFolderPathBox.Text, RawFolderPathBox.Text))
+                if (listGetter.GetLists(RawFolderPathBox.Text, JpegFolderPathBox.Text))
                 {
-                    new ListsForm(listGetter.rawList, listGetter.jpegList).Show();
+                    new ListsForm(listGetter.rawList.Filenames(), listGetter.jpegList.Filenames(), listGetter.deleteList.Filenames()).Show();
                 }
-            }
-            else new ListsForm(listGetter.rawList, listGetter.jpegList).Show();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)

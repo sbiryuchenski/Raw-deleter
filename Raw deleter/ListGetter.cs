@@ -22,6 +22,10 @@ namespace Raw_deleter
         /// </summary>
         public List<string> jpegList { get; private set; }
         /// <summary>
+        /// List whith filenames to delete
+        /// </summary>
+        public List<string> deleteList { get; private set; }
+        /// <summary>
         /// Is both lists not empty
         /// </summary>
         public bool isListNotEmpty { get; private set; }
@@ -48,9 +52,12 @@ namespace Raw_deleter
                 return false;
             }
 
-            rawList = Directory.GetFiles(rawPath).Select(fn => System.IO.Path.GetFileName(fn)).ToList();
-            jpegList = Directory.GetFiles(rawPath).Select(fn => System.IO.Path.GetFileName(fn)).ToList();
+            rawList = Directory.GetFiles(rawPath).ToList();
+            jpegList = Directory.GetFiles(jpegPath).ToList();
 
+
+
+            deleteList = rawList.Where(r => !jpegList.OnlyNames().Contains(r.OnlyName())).Select(f => f).ToList();
             return CheckListsNotEmpty();
         }
 

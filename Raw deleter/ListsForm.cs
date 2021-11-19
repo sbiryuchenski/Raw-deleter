@@ -12,11 +12,12 @@ namespace Raw_deleter
 {
     public partial class ListsForm : Form
     {
-        public ListsForm(List<string> rawList, List<string> jpegList)
+        public ListsForm(List<string> rawList, List<string> jpegList, List<string> deleteList)
         {
             InitializeComponent();
             rawListBox.Items.AddRange(rawList.ToArray());
-            jpegListBox.Items.AddRange(rawList.ToArray());
+            jpegListBox.Items.AddRange(jpegList.ToArray());
+            DeleteListBox.Items.AddRange(deleteList.ToArray());
         }
 
         private void rawListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -27,6 +28,21 @@ namespace Raw_deleter
         private void okButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void jpegListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListsForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
