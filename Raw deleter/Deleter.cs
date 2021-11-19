@@ -14,7 +14,7 @@ namespace Raw_deleter
     class Deleter
     {
         List<string> toDelete;
-        Deleter(List<string> toDelete)
+        public Deleter(List<string> toDelete)
         {
             this.toDelete = new List<string>(toDelete);
         }

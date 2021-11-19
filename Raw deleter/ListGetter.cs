@@ -53,11 +53,11 @@ namespace Raw_deleter
             }
 
             rawList = Directory.GetFiles(rawPath).ToList();
+            FilePathContainer.Raw = rawList;
             jpegList = Directory.GetFiles(jpegPath).ToList();
-
-
-
+            FilePathContainer.Jpeg = jpegList;
             deleteList = rawList.Where(r => !jpegList.OnlyNames().Contains(r.OnlyName())).Select(f => f).ToList();
+            FilePathContainer.ToDelete = deleteList;
             return CheckListsNotEmpty();
         }
 
