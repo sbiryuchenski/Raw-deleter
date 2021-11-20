@@ -37,11 +37,12 @@ namespace Raw_deleter
             this.textRaws = new System.Windows.Forms.Label();
             this.textWillDelete = new System.Windows.Forms.Label();
             this.textJpegs = new System.Windows.Forms.Label();
+            this.deleteProgress = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(298, 283);
+            this.deleteButton.Location = new System.Drawing.Point(299, 255);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(75, 23);
             this.deleteButton.TabIndex = 0;
@@ -51,7 +52,7 @@ namespace Raw_deleter
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(120, 283);
+            this.okButton.Location = new System.Drawing.Point(119, 255);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 1;
@@ -113,12 +114,20 @@ namespace Raw_deleter
             this.textJpegs.Text = "Jpegs";
             this.textJpegs.Click += new System.EventHandler(this.label3_Click);
             // 
+            // deleteProgress
+            // 
+            this.deleteProgress.Location = new System.Drawing.Point(31, 303);
+            this.deleteProgress.Name = "deleteProgress";
+            this.deleteProgress.Size = new System.Drawing.Size(425, 23);
+            this.deleteProgress.TabIndex = 8;
+            // 
             // ListsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 354);
             this.ControlBox = false;
+            this.Controls.Add(this.deleteProgress);
             this.Controls.Add(this.textJpegs);
             this.Controls.Add(this.textWillDelete);
             this.Controls.Add(this.textRaws);
@@ -146,5 +155,6 @@ namespace Raw_deleter
         private System.Windows.Forms.Label textRaws;
         private System.Windows.Forms.Label textWillDelete;
         private System.Windows.Forms.Label textJpegs;
+        private System.Windows.Forms.ProgressBar deleteProgress;
     }
 }

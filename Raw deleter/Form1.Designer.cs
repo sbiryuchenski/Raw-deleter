@@ -29,6 +29,7 @@ namespace Raw_deleter
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.FolderChecker = new System.Windows.Forms.FolderBrowserDialog();
             this.rawPathButton = new System.Windows.Forms.Button();
             this.jpegPathButton = new System.Windows.Forms.Button();
@@ -90,7 +91,7 @@ namespace Raw_deleter
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(287, 248);
+            this.deleteButton.Location = new System.Drawing.Point(291, 248);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(127, 23);
             this.deleteButton.TabIndex = 5;
@@ -109,6 +110,7 @@ namespace Raw_deleter
             this.Controls.Add(this.RawFolderPathBox);
             this.Controls.Add(this.jpegPathButton);
             this.Controls.Add(this.rawPathButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Raw deleter";

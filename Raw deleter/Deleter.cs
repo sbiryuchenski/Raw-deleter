@@ -14,21 +14,32 @@ namespace Raw_deleter
     class Deleter
     {
         List<string> toDelete;
+        public int deleteProgress { get; private set; } = 0;
+        public int filesCount { get; private set; }
+        public bool deleteStopped { get; private set; } = true;
+
         public Deleter(List<string> toDelete)
         {
             this.toDelete = new List<string>(toDelete);
+            filesCount = toDelete.Count;
         }
 
-        /// <summary>
-        /// Deletes files in list
-        /// </summary>
-        public void DeleteFiles()
+        private void DeleteFiles() // Deletes files in list
         {
             foreach (var d in toDelete)
             {
                 File.Delete(d);
+                deleteProgress++;
             }
             MessageBox.Show("Files deleted!");
+        }
+
+        /// <summary>
+        /// Acync method that deletes files in list
+        /// </summary>
+        public async void DeleteFielsAsync()
+        {
+            await Task.Run(() => DeleteFiles());
         }
     }
 }

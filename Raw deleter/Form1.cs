@@ -14,6 +14,7 @@ namespace Raw_deleter
     {
         PathSelecter pathSelecter;
         ListGetter listGetter;
+        Deleter deleter;
 
         public Form1()
         {
@@ -41,6 +42,17 @@ namespace Raw_deleter
             JpegFolderPathBox.Text = pathSelecter.JpegPathTaker();
         }
 
+        /// <summary>
+        /// Get lists and delete files
+        /// </summary>
+        private void Delete()
+        {
+            if (listGetter.GetLists(RawFolderPathBox.Text, JpegFolderPathBox.Text))
+            {
+                new ListsForm(listGetter.rawList.Filenames(), listGetter.jpegList.Filenames(), listGetter.deleteList.Filenames(), true);
+            }
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
                 if (listGetter.GetLists(RawFolderPathBox.Text, JpegFolderPathBox.Text))
@@ -51,7 +63,7 @@ namespace Raw_deleter
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-
+            Delete();
         }
 
         private void JpegFolderPathBox_TextChanged(object sender, EventArgs e)
